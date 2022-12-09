@@ -65,18 +65,19 @@ public class MainActivity extends AppCompatActivity {
 
         }); // Fim do btnTotal
 
-        btnPagar.setOnClickListener(new View.OnClickListener() {
+        btnPagar.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
                 double comdesc = total;
-                if(edtPagamento.getText().toString().equals(""))
+                if(edtPagamento.getText().toString().equals(""))  //Chegar se o campo de pagamento está vazio.
                 {
                     Toast.makeText(MainActivity.this, String.format("Impossível realizar a compra! Campo de pagamento vazio!"), Toast.LENGTH_SHORT).show();
                     Log.d("PAGAMENTO_DE_COMPRAS", "Impossível realizar a compra");
                 }
-                else //*/
+                else
                 {
-                    try
+                    try //tentar receber o valor de edtpagamento como um double
                     {
                         pago = Double.parseDouble(edtPagamento.getText().toString());
                     } catch(NumberFormatException e)
@@ -124,15 +125,15 @@ public class MainActivity extends AppCompatActivity {
                     else
                     {
                         Toast.makeText(MainActivity.this, String.format("Impossível realizar a compra! Valor inserido menor do que o total!"), Toast.LENGTH_SHORT).show();
-                    }//*/
+                    }
                     }
                     else
                     {
                         Toast.makeText(MainActivity.this, String.format("Escolha seu produto!"), Toast.LENGTH_SHORT).show();
                     }
-                //*/
+
                     }
                 }
-            }); //Fim do btn Pagar
+        }); //Fim do btn Pagar
         }
     }
